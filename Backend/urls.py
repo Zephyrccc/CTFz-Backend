@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
-from user.views import RegView, UserView, LoginView
+from user.views import UserView, RegisterView
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
@@ -27,7 +27,7 @@ urlpatterns = [
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('verify/', TokenVerifyView.as_view(), name='token_verify'),
-    path('test/', LoginView.as_view()),
-    path('reg/', RegView.as_view()),
+    # path('test/', LoginView.as_view()),
+    path('reg/', RegisterView.as_view()),
     re_path('^', include(router.urls)),
 ]

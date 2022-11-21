@@ -20,7 +20,7 @@ class UserRegSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-class UserLoginSerializer(serializers.ModelSerializer):
+class LoginAndRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'password']
@@ -36,3 +36,9 @@ class CustomObtainPairSerializer(TokenObtainPairSerializer):
         data['id'] = self.user.id
         data['username'] = self.user.username
         return data
+
+
+
+# 单独改密码
+# user.set_password(validated_data['password'])
+# user.save()
