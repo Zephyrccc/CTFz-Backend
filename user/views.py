@@ -1,10 +1,10 @@
-from rest_framework import viewsets,status
+from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from user.serializers import UserSerializer, RegisterSerializer
-from django.contrib.auth import get_user_model,authenticate,login
+from django.contrib.auth import get_user_model, authenticate, login
 
 
 class UserView(viewsets.ModelViewSet):
@@ -35,8 +35,8 @@ class LoginView(APIView):
                 data = dict()
                 data['status'] = 302
                 data['message'] = '登录成功'
-                data['access'] = str(refresh.access_token)
-                data['refresh'] = str(refresh)
+                data['token'] = {'access': str(
+                    refresh.access_token), 'refresh': str(refresh)}
                 data['result'] = {'id': user.pk, 'username': user.username}
                 return Response(data=data, status=status.HTTP_302_FOUND)
 
@@ -54,8 +54,9 @@ class RegisterView(APIView):
             data = dict()
             data['status'] = 201
             data['message'] = '注册成功'
-            data['access'] = str(refresh.access_token)
-            data['refresh'] = str(refresh)
+            data['token'] = {'access': str(
+                refresh.access_token), 'refresh': str(refresh)}
+            data['result'] = {'id': user.pk, 'username': user.username}
             data['result'] = {'id': user.pk, 'username': user.username}
             return Response(data=data, status=status.HTTP_201_CREATED)
         else:
