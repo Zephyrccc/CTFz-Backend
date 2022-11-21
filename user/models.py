@@ -2,11 +2,20 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-class UserProfile(AbstractUser):
+class BaseModel(models.Model):
+    created_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
+    updated_time = models.DateTimeField(verbose_name='更新时间', auto_now=True)
+
+    class Meta:
+        abstract = True
+
+
+class UserProfile(AbstractUser, BaseModel):
     """用户系统"""
-    # identity
-    IDENTITY = ((1, '超级管理员'), (100, '管理员'), (1000, '普通用户'))
-    identity = models.CharField(choices=IDENTITY, default='普通用户',max_length=20)
+    username = models.CharField(verbose_name='用户名', max_length=15, unique=True)
+    first_name = None
+    last_name = None
+    date_joined = None
 
     class Meta:
         db_table = "user"

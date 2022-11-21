@@ -1,47 +1,65 @@
-from user.serializers import CustomObtainPairSerializer
-from rest_framework import mixins
-from rest_framework import viewsets
-from rest_framework.mixins import CreateModelMixin
+from rest_framework import viewsets,status
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
-from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework import status
-from django.contrib.auth import get_user_model
-from user.serializers import UserSerializer, LoginAndRegisterSerializer
-
-User = get_user_model()
+from user.serializers import UserSerializer, RegisterSerializer
+from django.contrib.auth import get_user_model,authenticate,login
 
 
 class UserView(viewsets.ModelViewSet):
+    User = get_user_model()
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
 
-# class LoginView(TokenObtainPairView):
-#     serializer_class = CustomObtainPairSerializer
+class LoginView(APIView):
+    def post(self, request: Request):
+        username = request.data.get('username', None)
+        password = request.data.get('password', None)
+        if not username or not password:
+            data = dict()
+            data['status'] = 400
+            data['message'] = '参数错误'
+            return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            user = authenticate(request, username=username, password=password)
+            if not user:
+                data = dict()
+                data['status'] = 400
+                data['message'] = '账号或密码错误'
+                return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
+            else:
+                login(request, user)
+                refresh = RefreshToken.for_user(user)
+                data = dict()
+                data['status'] = 302
+                data['message'] = '登录成功'
+                data['access'] = str(refresh.access_token)
+                data['refresh'] = str(refresh)
+                data['result'] = {'id': user.pk, 'username': user.username}
+                return Response(data=data, status=status.HTTP_302_FOUND)
 
 
 class RegisterView(APIView):
     def post(self, request: Request):
-        ser = LoginAndRegisterSerializer(data=request.data)
+        ser = RegisterSerializer(data=request.data)
         if ser.is_valid():
             username = ser.validated_data['username']
-            user = User.objects.filter(username=username)
-            if not user:
-                password = ser.validated_data['password']
-                user = User.objects.create_user(username=username, password=password)
-                return Response({"code": '200', 'msg': 'register success'})
+            password = ser.validated_data['password']
+            User = get_user_model()
+            user = User.objects.create_user(
+                username=username, password=password)
+            refresh = RefreshToken.for_user(user)
+            data = dict()
+            data['status'] = 201
+            data['message'] = '注册成功'
+            data['access'] = str(refresh.access_token)
+            data['refresh'] = str(refresh)
+            data['result'] = {'id': user.pk, 'username': user.username}
+            return Response(data=data, status=status.HTTP_201_CREATED)
         else:
-            return Response({'status': False, 'message': '格式错误'})
-
-
-# class RegisterView(APIView):
-#     def post(self, request: Request):
-#         ser = LoginAndRegisterSerializer(data=request.data)
-#         ser.is_valid(raise_exception=True)
-#         username = ser.validated_data['username']
-#         password = ser.validated_data['password']
-#         user = User.objects.create_user(username=username, password=password)
-#         return Response({"code": '200', 'msg': 'register success'})
+            data = dict()
+            data['status'] = 400
+            data['message'] = '参数错误'
+            return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
