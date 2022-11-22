@@ -1,6 +1,5 @@
 from django.contrib import admin
-
-# Register your models here.
+from django.contrib.auth.admin import UserAdmin
 from .models import User, UserProfile
 
 
@@ -16,7 +15,7 @@ class UserProfileInline(admin.StackedInline):
     can_delete = False
 
 
-class UserAdmin(admin.ModelAdmin):
+class MyUserAdmin(UserAdmin):
     list_display = ['username', 'password', 'last_login',
                     'is_superuser', 'is_staff', 'is_active']
     inlines = [UserProfileInline]
@@ -32,5 +31,5 @@ class UserProfileAdmin(admin.ModelAdmin):
             return []
 
 
-admin.site.register(User, UserAdmin)
+admin.site.register(User, MyUserAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
