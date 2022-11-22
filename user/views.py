@@ -3,8 +3,9 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
-from user.serializers import UserSerializer, RegisterSerializer
 from django.contrib.auth import get_user_model, authenticate, login
+from .serializers import UserSerializer, RegisterSerializer, UserShowDataSerializer
+from .models import UserProfile, User
 
 
 class UserView(viewsets.ModelViewSet):
@@ -48,8 +49,8 @@ class RegisterView(APIView):
             username = ser.validated_data['username']
             password = ser.validated_data['password']
             User = get_user_model()
-            user = User.objects.create_user(
-                username=username, password=password)
+            user = User.objects.create_user(username=username, password=password)
+            UserProfile.objects.create(user=user)
             refresh = RefreshToken.for_user(user)
             data = dict()
             data['status'] = 201
@@ -64,3 +65,10 @@ class RegisterView(APIView):
             data['status'] = 400
             data['message'] = '参数错误'
             return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserShowDataView(viewsets.ModelViewSet):
+    serializer_class = UserShowDataSerializer
+
+    def get_queryset(self):
+        return User.objects.all()
