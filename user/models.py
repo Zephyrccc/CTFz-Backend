@@ -12,9 +12,7 @@ class BaseModel(models.Model):
 
 class User(AbstractUser):
     """用户系统"""
-    # username = models.CharField(max_length=15, unique=True, verbose_name='用户名')
-    # first_name = None
-    # last_name = None
+    username = models.CharField(max_length=15, unique=True, verbose_name='用户名')
 
     class Meta:
         db_table = "user"
@@ -28,7 +26,7 @@ class User(AbstractUser):
 class UserProfile(models.Model):
     SEX_CHOICES = (('男', '男'), ('女', '女'), ('保密', '保密'))
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='用户', related_name='profile')
-    sex = models.CharField(choices=SEX_CHOICES, max_length=2,null=False,default='保密', verbose_name='性别')
+    sex = models.CharField(choices=SEX_CHOICES, max_length=2,default='保密', verbose_name='性别')
 
     class Meta:
         db_table = "user_profile"
