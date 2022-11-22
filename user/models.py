@@ -12,7 +12,7 @@ class BaseModel(models.Model):
 
 class User(AbstractUser):
     """用户系统"""
-    username = models.CharField(max_length=15, unique=True, verbose_name='用户名')
+    # username = models.CharField(max_length=15, unique=True, verbose_name='用户名')
     first_name = None
     last_name = None
 
