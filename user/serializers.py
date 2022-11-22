@@ -25,12 +25,12 @@ class UserSerializer(serializers.ModelSerializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProfile
-        exclude=['id','user','created_time','updated_time']
+        exclude=['id','user']
 
 
 # 展示用户所有信息
 class UserShowDataSerializer(serializers.ModelSerializer):
-    profile = UserProfileSerializer(many=True)
+    profile = UserProfileSerializer(many=False)
 
     class Meta:
         model = models.User
