@@ -15,9 +15,9 @@ class UserProfileInline(admin.StackedInline):
     can_delete = False
 
 
-class MyUserAdmin(UserAdmin):
-    list_display = ['username', 'password', 'last_login',
-                    'is_superuser', 'is_staff', 'is_active']
+class CustomUserAdmin(UserAdmin):
+    list_display = ['username', 'last_login','is_superuser', 'is_staff', 'is_active']
+    readonly_fields = ['last_login', 'date_joined','username']
     inlines = [UserProfileInline]
 
 
@@ -31,5 +31,5 @@ class UserProfileAdmin(admin.ModelAdmin):
             return []
 
 
-admin.site.register(User, MyUserAdmin)
+admin.site.register(User, CustomUserAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
