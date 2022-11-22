@@ -20,12 +20,11 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'password']
 
 
-
 # 用户资料部分
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.UserProfile
-        exclude=['id','user']
+        exclude = ['id', 'user']
 
 
 # 展示用户所有信息
