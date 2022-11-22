@@ -16,9 +16,9 @@ class UserProfileInline(admin.StackedInline):
     can_delete = False
 
 
-
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'password', 'last_login','is_superuser', 'is_staff', 'is_active']
+    list_display = ['username', 'password', 'last_login',
+                    'is_superuser', 'is_staff', 'is_active']
     inlines = [UserProfileInline]
 
 
