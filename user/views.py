@@ -10,7 +10,7 @@ from .models import UserProfile, User
 
 
 class UserView(viewsets.ModelViewSet):
-    # permission_classes=[permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
     User = get_user_model()
     queryset = User.objects.all()
     serializer_class = UserSerializer
