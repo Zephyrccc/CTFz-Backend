@@ -2,6 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
+from rest_framework import permissions
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import get_user_model, authenticate, login
 from .serializers import UserSerializer, RegisterSerializer, UserShowDataSerializer
@@ -9,6 +10,7 @@ from .models import UserProfile, User
 
 
 class UserView(viewsets.ModelViewSet):
+    permission_classes=[permissions.IsAuthenticated]
     User = get_user_model()
     queryset = User.objects.all()
     serializer_class = UserSerializer
