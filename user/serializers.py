@@ -18,13 +18,6 @@ class RegisterSerializer(serializers.ModelSerializer):
 # user.save()
 
 
-# 账户信息序列化
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = get_user_model()
-        fields = ['id', 'username', 'password']
-
-
 # 用户资料部分
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
@@ -33,9 +26,10 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 # 展示用户所有信息
-class UserShowDataSerializer(serializers.ModelSerializer):
+class UserDataSerializer(serializers.ModelSerializer):
     profile = UserProfileSerializer(many=False)
 
     class Meta:
         model = models.User
         fields = ['id', 'username', 'profile']
+

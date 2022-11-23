@@ -1,15 +1,12 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework.routers import DefaultRouter
-from user.views import UserView, RegisterView, LoginView
+from user.views import RegisterView, LoginView,UserProfileView
 from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
-from user.views import UserShowDataView
 from api.tests import Init
 
 
 router = DefaultRouter()
-router.register('user/profile', UserShowDataView,basename='user/profile')
-router.register('user', UserView,basename='user')
 
 
 from rest_framework import permissions
@@ -41,5 +38,6 @@ urlpatterns = [
     path('register/', RegisterView.as_view()),
     path('api/token/refresh/', TokenRefreshView.as_view()),
     path('verify/', TokenVerifyView.as_view()),
+    path('user/profile/<int:pk>', UserProfileView.as_view()),
     re_path('^', include(router.urls)),
 ]

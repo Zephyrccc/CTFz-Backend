@@ -3,17 +3,11 @@ from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework import permissions
+from rest_framework.generics import RetrieveAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import get_user_model, authenticate, login
-from .serializers import UserSerializer, RegisterSerializer, LoginSerializer, UserShowDataSerializer
-from .models import UserProfile, User
-
-
-class UserView(viewsets.ModelViewSet):
-    # permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
-    User = get_user_model()
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+from .serializers import RegisterSerializer, LoginSerializer, UserDataSerializer
+from .models import User
 
 
 class LoginView(APIView):
@@ -52,9 +46,7 @@ class RegisterView(APIView):
             username = ser.validated_data['username']
             password = ser.validated_data['password']
             User = get_user_model()
-            user = User.objects.create_user(
-                username=username, password=password)
-            UserProfile.objects.create(user=user)
+            user = User.objects.create_user(username=username, password=password)
             refresh = RefreshToken.for_user(user)
             data = dict()
             data['status'] = 201
@@ -71,8 +63,7 @@ class RegisterView(APIView):
             return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
 
 
-class UserShowDataView(viewsets.ModelViewSet):
-    # permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
-    serializer_class = UserShowDataSerializer
-    def get_queryset(self):
-        return User.objects.all()
+class UserProfileView(RetrieveAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    queryset = User.objects.all()
+    serializer_class = UserDataSerializer
