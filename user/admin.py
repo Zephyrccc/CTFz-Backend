@@ -17,7 +17,7 @@ class UserProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     list_display = ['username', 'last_login','is_superuser', 'is_staff', 'is_active']
-    readonly_fields = ['last_login', 'date_joined','username']
+    readonly_fields = ['last_login', 'date_joined']
     inlines = [UserProfileInline]
 
 

@@ -2,6 +2,11 @@ from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from . import models
 
+# 登录信息序列化
+class LoginSerializer(serializers.Serializer):
+    username = serializers.CharField()
+    password = serializers.CharField()
+
 
 # 注册信息序列化
 class RegisterSerializer(serializers.ModelSerializer):

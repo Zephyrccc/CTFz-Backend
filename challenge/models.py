@@ -21,7 +21,8 @@ class Challenge(models.Model):
 class ChallengeFile(models.Model):
     title = models.CharField(max_length=200, verbose_name='文件名', null=True, blank=True)
     file_path = models.FileField(upload_to='challenge_file/', verbose_name='文件路径', null=True, blank=True)
-    challenge = models.OneToOneField(Challenge, on_delete=models.CASCADE, verbose_name='题目', related_name='file')
+    challenge = models.OneToOneField(
+        Challenge, on_delete=models.CASCADE, verbose_name='题目', related_name='file')
 
     class Meta:
         db_table = "challenge_file"
@@ -30,4 +31,3 @@ class ChallengeFile(models.Model):
 
     def __str__(self):
         return self.challenge.title
-
