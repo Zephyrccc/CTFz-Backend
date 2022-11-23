@@ -24,11 +24,6 @@ class CustomUserAdmin(UserAdmin):
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'sex']
 
-    def get_readonly_fields(self, request, obj=None):
-        if obj:
-            return ['user']
-        else:
-            return []
 
 
 admin.site.register(User, CustomUserAdmin)
