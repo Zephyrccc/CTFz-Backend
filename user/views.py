@@ -1,13 +1,13 @@
-from rest_framework import viewsets, status
+from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
-from django.contrib.auth import get_user_model, authenticate, login
 from .serializers import RegisterSerializer, LoginSerializer, UserDataSerializer
 from .models import User
+from django.contrib.auth import get_user_model, authenticate, login
 
 
 class LoginView(APIView):
@@ -26,12 +26,11 @@ class LoginView(APIView):
                 login(request, user)
                 refresh = RefreshToken.for_user(user)
                 data = dict()
-                data['status'] = 302
+                data['status'] = 200
                 data['message'] = '登录成功'
-                data['token'] = {'access': str(
-                    refresh.access_token), 'refresh': str(refresh)}
+                data['token'] = {'access': str(refresh.access_token), 'refresh': str(refresh)}
                 data['result'] = {'id': user.pk, 'username': user.username}
-                return Response(data=data, status=status.HTTP_302_FOUND)
+                return Response(data=data, status=status.HTTP_200_OK)
         else:
             data = dict()
             data['status'] = 400
@@ -46,13 +45,13 @@ class RegisterView(APIView):
             username = ser.validated_data['username']
             password = ser.validated_data['password']
             User = get_user_model()
-            user = User.objects.create_user(username=username, password=password)
+            user = User.objects.create_user(
+                username=username, password=password)
             refresh = RefreshToken.for_user(user)
             data = dict()
             data['status'] = 201
             data['message'] = '注册成功'
-            data['token'] = {'access': str(
-                refresh.access_token), 'refresh': str(refresh)}
+            data['token'] = {'access': str(refresh.access_token), 'refresh': str(refresh)}
             data['result'] = {'id': user.pk, 'username': user.username}
             data['result'] = {'id': user.pk, 'username': user.username}
             return Response(data=data, status=status.HTTP_201_CREATED)
