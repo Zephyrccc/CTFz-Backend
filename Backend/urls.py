@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include, re_path
-from api.tests import Init
 # swagger
 from rest_framework import permissions
 from drf_yasg2.views import get_schema_view
@@ -25,6 +24,5 @@ urlpatterns = [
     path('redoc/', schema_view.with_ui('redoc',cache_timeout=0), name='schema-redoc'),
     # swagger
     path('admin/', admin.site.urls),
-    path('init/', Init.as_view()),
     path('api/', include('api.urls')),
 ]

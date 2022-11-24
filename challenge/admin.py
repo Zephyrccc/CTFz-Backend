@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Challenge,ChallengeFile
+from .models import Challenge,ChallengeAttachment
 
 class ChallengeAdmin(admin.ModelAdmin):
     list_display=['title','score','mark_total','mark_count','created_time']
