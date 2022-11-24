@@ -13,3 +13,13 @@ class Init(APIView):
         User.objects.create_user(username='test4', password='test4')
         User.objects.create_user(username='test5', password='test5')
         return Response("成功")
+
+
+def Initi():
+        User.objects.create_superuser(username='admin', password='admin')
+        User.objects.create_superuser(username='root', password='root')
+        User.objects.create_user(username='test1', password='test1')
+        User.objects.create_user(username='test2', password='test2')
+        User.objects.create_user(username='test3', password='test3')
+        User.objects.create_user(username='test4', password='test4')
+        User.objects.create_user(username='test5', password='test5')

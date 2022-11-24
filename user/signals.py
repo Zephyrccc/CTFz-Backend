@@ -9,7 +9,7 @@ def create_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
 
 
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     if not created:
-        # 保存时的操作
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, created,**kwargs):
+    if not created:
+        print(instance.username)
