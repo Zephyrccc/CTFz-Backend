@@ -74,3 +74,6 @@ class DockerConfig(models.Model):
         db_table = "challenge_docker_config"
         verbose_name = "docker设置"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.challenge_two.title

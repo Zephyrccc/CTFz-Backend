@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from challenge.models import Challenge
 
 class BaseModel(models.Model):
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
@@ -27,6 +27,7 @@ class Profile(models.Model):
     SEX_CHOICES = (('男', '男'), ('女', '女'), ('保密', '保密'))
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='用户', related_name='profile')
     sex = models.CharField(choices=SEX_CHOICES, max_length=2,default='保密', verbose_name='性别')
+    finished_challenge=models.ManyToManyField(to=Challenge,verbose_name='完成的题目')
 
     class Meta:
         db_table = "user_profile"

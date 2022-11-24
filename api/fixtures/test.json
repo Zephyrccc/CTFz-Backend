@@ -1,60 +1,60 @@
 [
-    {
-      "model": "chanllenge.Challenge",
-      "pk": 1,
-      "fields": {
-        "environment_type": "docker",
-        "title": "test1",
-        "category_id":1,
-        "describe":"test1的描述",
-        "score":1,
-        "state":1,
-        "is_fixed_flag":0,
-        "flag":null,
-        "have_attachment":0,
-        "mark_total":0,
-        "mark_count":0,
-        "created_time":"2022-11-24 23:31:20.551284"
-      }
-    },
-    {
-        "model": "chanllenge.Challenge",
-        "pk": 2,
-        "fields": {
-          "environment_type": "docker",
-          "title": "test2",
-          "category_id":2,
-          "describe":"test2的描述",
-          "score":1,
-          "state":1,
-          "is_fixed_flag":0,
-          "flag":null,
-          "have_attachment":1,
-          "mark_total":0,
-          "mark_count":0,
-          "created_time":"2022-11-24 22:36:21.540611"
-        }
-      },
-      {
-        "model": "chanllenge.DockerConfig",
-        "pk": 1,
-        "fields": {
-          "name": "test1",
-          "port": 80,
-          "memory_limit":128,
-          "cpu_limit":0.5,
-          "challenge_two_id":1
-        }
-      },
-      {
-        "model": "chanllenge.DockerConfig",
-        "pk": 2,
-        "fields": {
-          "name": "test2",
-          "port": 80,
-          "memory_limit":128,
-          "cpu_limit":0.5,
-          "challenge_two_id":2
-        }
-      }
-  ]
+  {
+    "model": "challenge.Challenge",
+    "pk": 1,
+    "fields": {
+      "environment_type": "docker",
+      "title": "test1",
+      "category_id": 1,
+      "describe": "test1的描述",
+      "score": 1,
+      "state": 1,
+      "is_fixed_flag": 0,
+      "flag": null,
+      "have_attachment": 0,
+      "mark_total": 0,
+      "mark_count": 0,
+      "created_time": "2022-11-24 23:31:20.551284"
+    }
+  },
+  {
+    "model": "challenge.Challenge",
+    "pk": 2,
+    "fields": {
+      "environment_type": "docker",
+      "title": "test2",
+      "category_id": 2,
+      "describe": "test2的描述",
+      "score": 1,
+      "state": 1,
+      "is_fixed_flag": 0,
+      "flag": null,
+      "have_attachment": 1,
+      "mark_total": 0,
+      "mark_count": 0,
+      "created_time": "2022-11-24 22:36:21.540611"
+    }
+  },
+  {
+    "model": "challenge.DockerConfig",
+    "pk": 1,
+    "fields": {
+      "name": "test1",
+      "port": 80,
+      "memory_limit": 128,
+      "cpu_limit": 0.5,
+      "challenge_two_id": 1
+    }
+  },
+  {
+    "model": "challenge.DockerConfig",
+    "pk": 2,
+    "fields": {
+      "name": "test2",
+      "port": 80,
+      "memory_limit": 128,
+      "cpu_limit": 0.5,
+      "challenge_two_id": 2
+    }
+  }
+]

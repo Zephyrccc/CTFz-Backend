@@ -32,175 +32,191 @@
     }
   },
   {
-    "model": "challenge.Category",
+    "model": "user.profile",
+    "pk": 11,
+    "fields": {
+      "user": 1,
+      "sex": "男"
+    }
+  },
+  {
+    "model": "user.profile",
+    "pk": 12,
+    "fields": {
+      "user": 2,
+      "sex": "女"
+    }
+  },
+  {
+    "model": "challenge.category",
     "pk": 1,
     "fields": {
       "name": "Web"
     }
   },
   {
-    "model": "challenge.Category",
+    "model": "challenge.category",
     "pk": 2,
     "fields": {
       "name": "Pwn"
     }
   },
   {
-    "model": "challenge.Category",
+    "model": "challenge.category",
     "pk": 3,
     "fields": {
       "name": "Reverse"
     }
   },
   {
-    "model": "challenge.Category",
+    "model": "challenge.category",
     "pk": 4,
     "fields": {
       "name": "Crypto"
     }
   },
   {
-    "model": "challenge.Category",
+    "model": "challenge.category",
     "pk": 5,
     "fields": {
       "name": "Misc"
     }
   },
   {
-    "model": "challenge.Category",
+    "model": "challenge.category",
     "pk": 6,
     "fields": {
       "name": "Other"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 1,
     "fields": {
       "name": "Web"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 2,
     "fields": {
       "name": "Pwn"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 3,
     "fields": {
       "name": "Reverse"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 4,
     "fields": {
       "name": "Crypto"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 5,
     "fields": {
       "name": "Misc"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 6,
     "fields": {
       "name": "PHP"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 7,
     "fields": {
       "name": "RCE"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 8,
     "fields": {
       "name": "SQL注入"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 9,
     "fields": {
       "name": "XFF"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 10,
     "fields": {
       "name": "反序列化"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 11,
     "fields": {
       "name": "文件上传"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 12,
     "fields": {
       "name": "PHP伪协议"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 13,
     "fields": {
       "name": "流量分析"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 14,
     "fields": {
       "name": "SSRF"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 15,
     "fields": {
       "name": "图片隐写"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 16,
     "fields": {
       "name": "堆叠注入"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 17,
     "fields": {
       "name": "整数溢出"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 18,
     "fields": {
       "name": "栈溢出"
     }
   },
   {
-    "model": "challenge.Tag",
+    "model": "challenge.tag",
     "pk": 19,
     "fields": {
       "name": "ret2libc"
