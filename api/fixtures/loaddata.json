@@ -51,5 +51,51 @@
         "user_id": 2,
         "sex":"男"
       }
+    },
+
+
+
+
+    {
+      "model": "challenge.Category",
+      "pk": 1,
+      "fields": {
+        "name": "Web"
+      }
+    },
+    {
+      "model": "challenge.Category",
+      "pk": 2,
+      "fields": {
+        "name": "Pwn"
+      }
+    },
+    {
+      "model": "challenge.Category",
+      "pk": 3,
+      "fields": {
+        "name": "Reverse"
+      }
+    },
+    {
+      "model": "challenge.Category",
+      "pk": 4,
+      "fields": {
+        "name": "Crypto"
+      }
+    },
+    {
+      "model": "challenge.Category",
+      "pk": 5,
+      "fields": {
+        "name": "Misc"
+      }
+    },
+    {
+      "model": "challenge.Category",
+      "pk": 6,
+      "fields": {
+        "name": "Other"
+      }
     }
 ]
