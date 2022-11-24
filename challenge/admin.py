@@ -1,9 +1,9 @@
 from django.contrib import admin
-from challenge.models import Challenge, Attachment, DockerConfig,Category,TagList,ChallengeTag
+from challenge.models import Challenge, Attachment, DockerConfig,Category,Tag
 
-class ChallengeTagInline(admin.StackedInline):
-    model=ChallengeTag
-    fk_name='challenge_three'
+# class ChallengeTagInline(admin.StackedInline):
+#     model=ChallengeTag
+#     fk_name='challenge_three'
 
 
 class AttachmentInline(admin.StackedInline):
@@ -18,7 +18,7 @@ class DockerConfigInline(admin.StackedInline):
 
 @admin.register(Challenge)
 class ChallengeAdmin(admin.ModelAdmin):
-    list_display = ['title', 'environment_type', 'category','state', 'score',  'is_fixed_flag', 'have_attachment','challenge_tag']
+    list_display = ['title', 'environment_type', 'category','state', 'score',  'is_fixed_flag', 'have_attachment']
     readonly_fields = ['mark_total', 'mark_count']
     inlines = [AttachmentInline, DockerConfigInline]
 
@@ -37,6 +37,6 @@ class DockerConfigAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
 
-@admin.register(TagList)
-class TagListAdmin(admin.ModelAdmin):
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
     list_display = ['name']

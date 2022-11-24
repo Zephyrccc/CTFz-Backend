@@ -76,20 +76,11 @@ class DockerConfig(models.Model):
         verbose_name_plural = verbose_name
 
 
-class TagList(models.Model):
+class Tag(models.Model):
     name = models.CharField(max_length=64, verbose_name='标签')
 
     class Meta:
-        db_table = "challenge_tag_list"
+        db_table = "challenge_tag"
         verbose_name = "标签列表"
         verbose_name_plural = verbose_name
 
-
-class ChallengeTag(models.Model):
-    challenge_three = models.ForeignKey(to=Challenge,on_delete=models.CASCADE,related_name='challenge_tag')
-    tag = models.ForeignKey(to=TagList,on_delete=models.CASCADE,related_name='challenge_tag')
-
-    class Meta:
-        db_table = "challenge_tag"
-        verbose_name = "题目标签"
-        verbose_name_plural = verbose_name
