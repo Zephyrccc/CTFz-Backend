@@ -19,15 +19,15 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 # 用户资料部分
-class UserProfileSerializer(serializers.ModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.UserProfile
+        model = models.Profile
         exclude = ['id', 'user']
 
 
 # 展示用户所有信息
-class UserDataSerializer(serializers.ModelSerializer):
-    profile = UserProfileSerializer(many=False)
+class DataSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(many=False)
 
     class Meta:
         model = models.User

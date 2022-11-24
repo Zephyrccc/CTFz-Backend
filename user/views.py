@@ -5,7 +5,7 @@ from rest_framework.views import APIView
 from rest_framework import permissions
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
-from .serializers import RegisterSerializer, LoginSerializer, UserDataSerializer
+from .serializers import RegisterSerializer, LoginSerializer, DataSerializer
 from .models import User
 from django.contrib.auth import get_user_model, authenticate, login
 
@@ -62,7 +62,7 @@ class RegisterView(APIView):
             return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
 
 
-class UserProfileView(RetrieveAPIView):
+class ProfileView(RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = User.objects.all()
-    serializer_class = UserDataSerializer
+    serializer_class = DataSerializer

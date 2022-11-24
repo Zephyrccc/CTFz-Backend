@@ -23,7 +23,7 @@ class User(AbstractUser):
         return self.username
 
 
-class UserProfile(models.Model):
+class Profile(models.Model):
     SEX_CHOICES = (('男', '男'), ('女', '女'), ('保密', '保密'))
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='用户', related_name='profile')
     sex = models.CharField(choices=SEX_CHOICES, max_length=2,default='保密', verbose_name='性别')
