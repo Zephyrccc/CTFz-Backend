@@ -27,7 +27,7 @@ class Profile(models.Model):
     SEX_CHOICES = (('男', '男'), ('女', '女'), ('保密', '保密'))
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='用户', related_name='profile')
     sex = models.CharField(choices=SEX_CHOICES, max_length=2,default='保密', verbose_name='性别')
-    finished_challenge=models.ManyToManyField(to=Challenge,verbose_name='完成的题目')
+    finished_challenge=models.ManyToManyField(Challenge,through='UserFinishedChallenge',verbose_name='完成的题目')
 
     class Meta:
         db_table = "user_profile"
@@ -36,3 +36,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class UserFinishedChallenge(models.Model):
+    user=models.ForeignKey(Profile,on_delete=models.CASCADE)
+    challenge=models.ForeignKey(Challenge,on_delete=models.CASCADE)
