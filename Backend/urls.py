@@ -4,6 +4,7 @@ from django.urls import path, include, re_path
 from rest_framework import permissions
 from drf_yasg2.views import get_schema_view
 from drf_yasg2 import openapi
+from api.tests import Init
 schema_view = get_schema_view(
     openapi.Info(
         title="接口文档",
@@ -25,4 +26,5 @@ urlpatterns = [
     # swagger
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
+    path('init/', Init.as_view()),
 ]
