@@ -5,8 +5,11 @@ class Category(models.Model):
     name = models.CharField(max_length=64, verbose_name='分类名')
     class Meta:
         db_table = "challenge_category"
-        verbose_name = "分类"
+        verbose_name = "题目分类"
         verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
 
 
 class Challenge(models.Model):
@@ -14,24 +17,15 @@ class Challenge(models.Model):
     ENVIRONMENT_TYPE_CHOICES = (('docker', 'docker'), ('file', '静态文件'))
     STATE_CHOICES = ((True, '开放'), (False, '隐藏'))
     BOOLEAN_CHOICES = ((True, '是'), (False, '否'))
-    CATEGORY_CHOICES = (('Web', 'Web'), ('Pwn', 'Pwn'), ('Reverse', 'Reverse'),
-                        ('Crypto', 'Crypto'), ('Misc', 'Misc'), ('Other', 'Other'))
-    environment_type = models.CharField(
-        choices=ENVIRONMENT_TYPE_CHOICES, default='docker', max_length=20, verbose_name='类型')
+    environment_type = models.CharField(choices=ENVIRONMENT_TYPE_CHOICES, default='docker', max_length=20, verbose_name='环境类型')
     title = models.CharField(max_length=128, verbose_name='题目名称')
-    category = models.CharField(
-        choices=CATEGORY_CHOICES, max_length=64, verbose_name='分类')
-    describe = models.CharField(
-        max_length=128, null=True, blank=True, verbose_name='描述')
+    category = models.ForeignKey(to=Category,on_delete=models.CASCADE,verbose_name="题目分类")
+    describe = models.CharField(max_length=128, null=True, blank=True, verbose_name='描述')
     score = models.PositiveIntegerField(default=1, verbose_name='分值')
-    state = models.BooleanField(
-        choices=STATE_CHOICES, default=True, verbose_name='状态')
-    is_fixed_flag = models.BooleanField(
-        choices=BOOLEAN_CHOICES, default=False, verbose_name='flag是否固定')
-    flag = models.CharField(max_length=128, null=True,
-                            blank=True, verbose_name='flag')
-    have_attachment = models.BooleanField(
-        choices=BOOLEAN_CHOICES, verbose_name='是否有题目附件')
+    state = models.BooleanField(choices=STATE_CHOICES, default=True, verbose_name='状态')
+    is_fixed_flag = models.BooleanField(choices=BOOLEAN_CHOICES, default=False, verbose_name='flag是否固定')
+    flag = models.CharField(max_length=128, null=True,blank=True, verbose_name='flag')
+    have_attachment = models.BooleanField(choices=BOOLEAN_CHOICES, verbose_name='是否有题目附件')
     mark_total = models.PositiveIntegerField(default=0, verbose_name='总评分')
     mark_count = models.PositiveIntegerField(default=0, verbose_name='评分人数')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
@@ -45,7 +39,7 @@ class Challenge(models.Model):
         return self.title
 
 
-class ChallengeAttachment(models.Model):
+class Attachment(models.Model):
     file = models.FileField(upload_to='challenge_file/',
                             verbose_name='文件', help_text='若设置有题目附件请填写此项')
     challenge_one = models.OneToOneField(
@@ -57,7 +51,7 @@ class ChallengeAttachment(models.Model):
         verbose_name_plural = verbose_name
 
 
-class ChallengeDockerConfig(models.Model):
+class DockerConfig(models.Model):
     name = models.CharField(
         max_length=256, verbose_name='镜像名', help_text='若设置题目类型为docker请填写此项')
     port = models.PositiveIntegerField(default=80, verbose_name='内部端口')
