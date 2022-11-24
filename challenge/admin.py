@@ -1,19 +1,32 @@
 from django.contrib import admin
-
+from challenge.models import Challenge, ChallengeAttachment, ChallengeDockerConfig
 # Register your models here.
-from .models import Challenge,ChallengeAttachment
 
+
+class ChallengeAttachmentInline(admin.StackedInline):
+    model = ChallengeAttachment
+    fk_name = 'challenge_one'
+    can_delete = False
+
+
+class ChallengeDockerConfigInline(admin.StackedInline):
+    model = ChallengeDockerConfig
+    fk_name = 'challenge_two'
+    can_delete = False
+
+
+@admin.register(Challenge)
 class ChallengeAdmin(admin.ModelAdmin):
-    list_display=['title','score','mark_total','mark_count','created_time']
+    list_display = ['title', 'environment_type','state','score',  'is_fixed_flag', 'have_attachment']
+    readonly_fields = ['mark_total', 'mark_count']
+    inlines = [ChallengeAttachmentInline,ChallengeDockerConfigInline]
 
-# class UserProfileAdmin(admin.ModelAdmin):
-#     list_display=['user','sex']
 
-#     def get_readonly_fields(self, request, obj=None):
-#         if obj:
-#             return ['user']
-#         else:
-#             return []
+@admin.register(ChallengeAttachment)
+class ChallengeAttachmentAdmin(admin.ModelAdmin):
+    list_display = ['file']
 
-admin.site.register(Challenge,ChallengeAdmin)
-# admin.site.register(UserProfile,UserProfileAdmin)
+
+@admin.register(ChallengeDockerConfig)
+class ChallengeDockerConfigAdmin(admin.ModelAdmin):
+    list_display = ['name', 'port', 'memory_limit', 'cpu_limit']
