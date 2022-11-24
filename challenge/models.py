@@ -1,5 +1,4 @@
 from django.db import models
-from user.models import Profile
 
 class Category(models.Model):
     name = models.CharField(max_length=64, verbose_name='分类名')
@@ -41,7 +40,6 @@ class Challenge(models.Model):
     is_fixed_flag = models.BooleanField(choices=BOOLEAN_CHOICES, default=False, verbose_name='flag是否固定')
     flag = models.CharField(max_length=128, null=True,blank=True, verbose_name='flag')
     have_attachment = models.BooleanField(choices=BOOLEAN_CHOICES, verbose_name='是否有题目附件')
-    user=models.ManyToManyField(Profile,through='UserFinishedChallenge',verbose_name='完成的用户')
     mark_total = models.PositiveIntegerField(default=0, verbose_name='总评分')
     mark_count = models.PositiveIntegerField(default=0, verbose_name='评分人数')
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
