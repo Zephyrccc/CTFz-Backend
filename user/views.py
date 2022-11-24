@@ -19,21 +19,21 @@ class LoginView(APIView):
             user = authenticate(request, username=username, password=password)
             if not user:
                 data = dict()
-                data['status'] = 400
+                data['code'] = 400
                 data['message'] = '账号或密码错误'
                 return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
             else:
                 login(request, user)
                 refresh = RefreshToken.for_user(user)
                 data = dict()
-                data['status'] = 200
+                data['code'] = 200
                 data['message'] = '登录成功'
                 data['token'] = {'access': str(refresh.access_token), 'refresh': str(refresh)}
                 data['result'] = {'id': user.pk, 'username': user.username}
                 return Response(data=data, status=status.HTTP_200_OK)
         else:
             data = dict()
-            data['status'] = 400
+            data['code'] = 400
             data['message'] = '参数错误'
             return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
 
@@ -49,7 +49,7 @@ class RegisterView(APIView):
                 username=username, password=password)
             refresh = RefreshToken.for_user(user)
             data = dict()
-            data['status'] = 201
+            data['code'] = 201
             data['message'] = '注册成功'
             data['token'] = {'access': str(refresh.access_token), 'refresh': str(refresh)}
             data['result'] = {'id': user.pk, 'username': user.username}
@@ -57,7 +57,7 @@ class RegisterView(APIView):
             return Response(data=data, status=status.HTTP_201_CREATED)
         else:
             data = dict()
-            data['status'] = 400
+            data['code'] = 400
             data['message'] = '参数错误'
             return Response(data=data, status=status.HTTP_400_BAD_REQUEST)
 

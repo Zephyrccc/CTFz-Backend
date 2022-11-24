@@ -14,17 +14,14 @@ class UserProfileInline(admin.StackedInline):
     # 是否可删除
     can_delete = False
 
-
+@admin.register(User)
 class CustomUserAdmin(UserAdmin):
     list_display = ['username', 'last_login','is_superuser', 'is_staff', 'is_active']
     readonly_fields = ['last_login', 'date_joined']
     inlines = [UserProfileInline]
 
-
+@admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'sex']
 
 
-
-admin.site.register(User, CustomUserAdmin)
-admin.site.register(UserProfile, UserProfileAdmin)
