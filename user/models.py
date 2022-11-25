@@ -39,11 +39,11 @@ class Profile(models.Model):
 
 class UserFinishedChallenge(models.Model):
     user=models.ForeignKey(Profile,on_delete=models.CASCADE)
-    challenge=models.ForeignKey(Challenge,on_delete=models.CASCADE,related_name='finished_challenge')
+    challenge=models.ForeignKey(Challenge,on_delete=models.CASCADE)
 
     class Meta:
         db_table = "user_finished_challenge"
-        verbose_name = "用户资料"
+        verbose_name = "用户完成的题目"
         verbose_name_plural = verbose_name
 
     def __str__(self):
