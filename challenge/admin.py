@@ -14,12 +14,17 @@ class DockerConfigInline(admin.StackedInline):
 
 @admin.register(Challenge)
 class ChallengeAdmin(admin.ModelAdmin):
-    list_display = ['title', 'environment_type', 'category','state', 'score',  'is_fixed_flag', 'have_attachment', 'tag']
+    list_display = ['title', 'environment_type', 'category','state', 'score',  'is_fixed_flag', 'have_attachment', 'show_tag']
     readonly_fields = ['mark_total', 'mark_count']
+    list_filter = ['environment_type']
+    list_editable = ['score','state','category']
     inlines = [AttachmentInline, DockerConfigInline]
+    filter_horizontal=['tag']
 
-    def tag(self, obj):
+    def show_tag(self, obj):
         return [Tag.name for Tag in obj.tag.all()]
+    show_tag.short_description='标签'
+
 
 
 @admin.register(Attachment)
