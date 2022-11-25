@@ -28,4 +28,4 @@ class CustomUserAdmin(UserAdmin):
 
 @admin.register(SolveInfo)
 class SolveInfoAdmin(admin.ModelAdmin):
-    list_display = ['user','challenge','time']
+    list_display = ['user','challenge','state','time']

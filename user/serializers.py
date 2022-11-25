@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .models import User,Profile
+from .models import User,Profile,SolveInfo
 
 # 登录信息序列化
 class LoginSerializer(TokenObtainPairSerializer):
@@ -34,7 +34,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        exclude = ['id', 'user']
+        exclude = ['id', 'user','solve_info']
 
 
 # 展示用户所有信息
@@ -44,3 +44,9 @@ class DataSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'profile']
+
+
+class SolveInfo(serializers.ModelSerializer):
+    class Meta:
+        model = SolveInfo
+        exclude=['id']
