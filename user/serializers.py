@@ -46,7 +46,8 @@ class DataSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'profile']
 
 
-class SolveInfo(serializers.ModelSerializer):
+class SolveInfoSerializer(serializers.ModelSerializer):
     class Meta:
         model = SolveInfo
-        exclude=['id']
+        exclude=['id','user']
+        # depth=1
