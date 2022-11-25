@@ -46,6 +46,16 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'password', 'sex', 'solve_info']
         extra_kwargs = {"password": {"write_only": True}}
 
+
+class UserDateSerializer(serializers.ModelSerializer):
+    """
+    用户模型序列化
+    """
+    class Meta:
+        model = User
+        fields = ['password', 'sex']
+        extra_kwargs = {"password": {"write_only": True}}
+
     def update(self, instance, validated_data):
         result_instance = super().update(instance, validated_data)
         password = validated_data.get('password', None)
