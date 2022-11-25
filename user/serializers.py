@@ -1,18 +1,30 @@
 from rest_framework import serializers
-from django.contrib.auth import get_user_model
-from . import models
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from .models import User,Profile
 
 # 登录信息序列化
-class LoginSerializer(serializers.Serializer):
-    username = serializers.CharField()
-    password = serializers.CharField()
+class LoginSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        super().validate(attrs)
+        refresh = self.get_token(self.user)
+        token = {'access': str(refresh.access_token), 'refresh': str(refresh)}
+        result = {'id': self.user.pk, 'username': self.user.username}
+        return {'code': 200, 'message': '登录成功', 'token': token, 'result': result}
 
 
-# 注册信息序列化
 class RegisterSerializer(serializers.ModelSerializer):
     class Meta:
-        model = get_user_model()
+        model = User
         fields = ['username', 'password']
+    extra_kwargs = {"password": {"write_only": True}}
+
+    def create(self, validated_data):
+        username = validated_data["username"]
+        password = validated_data["password"]
+        user = User(username=username)
+        user.set_password(password)
+        user.save()
+        return user
 # 单独改密码
 # user.set_password(validated_data['password'])
 # user.save()
@@ -21,7 +33,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 # 用户资料部分
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.Profile
+        model = Profile
         exclude = ['id', 'user']
 
 
@@ -30,6 +42,5 @@ class DataSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(many=False)
 
     class Meta:
-        model = models.User
+        model = User
         fields = ['id', 'username', 'profile']
-
