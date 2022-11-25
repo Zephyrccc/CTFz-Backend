@@ -33,7 +33,7 @@ class Challenge(models.Model):
     environment_type = models.CharField(choices=ENVIRONMENT_TYPE_CHOICES, default='docker', max_length=20, verbose_name='环境类型')
     title = models.CharField(max_length=128, verbose_name='题目名称')
     category = models.ForeignKey(to=Category, on_delete=models.DO_NOTHING, verbose_name="题目分类")
-    tag = models.ManyToManyField(to=Tag, verbose_name='标签')
+    tag = models.ManyToManyField(to=Tag, verbose_name='标签',blank=True)
     describe = models.CharField(max_length=128, null=True, blank=True, verbose_name='描述')
     score = models.PositiveIntegerField(default=1, verbose_name='分值')
     state = models.BooleanField(choices=STATE_CHOICES, default=True, verbose_name='状态')
