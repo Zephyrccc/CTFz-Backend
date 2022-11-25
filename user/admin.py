@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Profile,UserFinishedChallenge
-from challenge.models import Challenge
+from .models import User, Profile,SolveInfo
 
 class ProfileInline(admin.StackedInline):
     model = Profile
@@ -16,13 +15,9 @@ class ProfileInline(admin.StackedInline):
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'sex','show_finished_challenge']
-
-    def show_finished_challenge(self, obj):
-        return [finished.title for finished in obj.finished_challenge.all()]
-
-    show_finished_challenge.short_description='解决的题目'
+    list_display = ['user', 'sex']
    
+
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
@@ -31,13 +26,6 @@ class CustomUserAdmin(UserAdmin):
     inlines = [ProfileInline]
 
 
-# @admin.register(UserFinishedChallenge)
-# class UserFinishedChallengeAdmin(UserAdmin):
-
-#     def challenge(self,obj):
-#             return [a.title for a in obj.challenge.all()]
-
-
-#     list_display = ['challenge']
-
-#     filter_horizontal=('challenge',)
+@admin.register(SolveInfo)
+class SolveInfoAdmin(admin.ModelAdmin):
+    list_display = ['user','challenge','state','time']
