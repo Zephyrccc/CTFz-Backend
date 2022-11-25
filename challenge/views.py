@@ -1,19 +1,20 @@
 from rest_framework.generics import RetrieveAPIView,ListAPIView
-from .models import Challenge,Attachment
-from .serializers import ChallengeSerializer,AttachmentSerializer
+from .models import Challenge,Tag,Category
+from .serializers import ChallengeSerializer,TagSerializer,CategorySerializer
 
 class ChallengeListView(ListAPIView):
-    # permission_classes = [permissions.IsAuthenticated]
     queryset = Challenge.objects.all()
     serializer_class = ChallengeSerializer
 
 
 class ChallengeRetrieveView(RetrieveAPIView):
-    # permission_classes = [permissions.IsAuthenticated]
     queryset = Challenge.objects.all()
     serializer_class = ChallengeSerializer
 
-class AttachmentRetrieveView(RetrieveAPIView):
-    # permission_classes = [permissions.IsAuthenticated]
-    queryset = Attachment.objects.all()
-    serializer_class = AttachmentSerializer
+class TagListView(ListAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+
+class CategoryListView(ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

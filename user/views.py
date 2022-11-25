@@ -3,7 +3,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.request import Request
 from rest_framework.views import APIView
-from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -28,13 +29,12 @@ class RegisterView(APIView):
         data['result'] = {'id': user.pk, 'username': user.username}
         return Response(data=data, status=status.HTTP_201_CREATED)
 
+# @permission_classes([IsAuthenticated])
 class ProfileView(RetrieveAPIView):
-    # permission_classes = [permissions.IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = DataSerializer
 
 
 class SolveInfoView(RetrieveAPIView):
-    # permission_classes = [permissions.IsAuthenticated]
     queryset = SolveInfo.objects.all()
     serializer_class = SolveInfoSerializer

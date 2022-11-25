@@ -1,14 +1,20 @@
 from rest_framework import serializers
-from .models import Challenge, Attachment
+from .models import Challenge,Tag,Category
 
 
 class ChallengeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Challenge
-        exclude = ['id', 'state', 'is_fixed_flag', 'flag', 'created_time']
+        fields = ['environment_type', 'category', 'title', 'describe', 'score','have_attachment', 'mark_total', 'mark_count', 'category', 'tag', 'attachment']
 
 
-class AttachmentSerializer(serializers.ModelSerializer):
+class TagSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Attachment
-        exclude = ['challenge_one']
+        model = Tag
+        fields = '__all__'
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'
+
