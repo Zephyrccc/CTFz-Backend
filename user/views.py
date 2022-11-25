@@ -5,11 +5,12 @@ from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import RetrieveAPIView, UpdateAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import RegisterSerializer, LoginSerializer, UserSerializer, SolveInfoSerializer
+from .serializers import RegisterSerializer, LoginSerializer, UserSerializer, SolveInfoSerializer, UserDateSerializer
 from .models import User, SolveInfo
+from .permissions import IsOwner
 
 
 class LoginView(TokenObtainPairView):
@@ -30,12 +31,21 @@ class RegisterView(APIView):
         data['result'] = {'id': user.pk, 'username': user.username}
         return Response(data=data, status=status.HTTP_201_CREATED)
 
-# @permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated(),IsOwner()])
 
 
-class UserRetrieveView(RetrieveAPIView):
+class UserRetrieveView(RetrieveAPIView, UpdateAPIView):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return UserSerializer
+        return UserDateSerializer
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [IsAuthenticated()]
+        return [IsAuthenticated(), IsOwner(), ]
 
 
 class SolveInfoView(RetrieveAPIView):
