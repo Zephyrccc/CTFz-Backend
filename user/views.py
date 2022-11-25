@@ -8,8 +8,8 @@ from rest_framework.decorators import permission_classes
 from rest_framework.generics import RetrieveAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
-from .serializers import RegisterSerializer, LoginSerializer, DataSerializer,SolveInfoSerializer
-from .models import User,SolveInfo
+from .serializers import RegisterSerializer, LoginSerializer, UserSerializer, SolveInfoSerializer
+from .models import User, SolveInfo
 
 
 class LoginView(TokenObtainPairView):
@@ -25,14 +25,17 @@ class RegisterView(APIView):
         data = dict()
         data['code'] = 201
         data['message'] = '注册成功'
-        data['token'] = {'access': str(refresh.access_token), 'refresh': str(refresh)}
+        data['token'] = {'access': str(
+            refresh.access_token), 'refresh': str(refresh)}
         data['result'] = {'id': user.pk, 'username': user.username}
         return Response(data=data, status=status.HTTP_201_CREATED)
 
 # @permission_classes([IsAuthenticated])
-class ProfileView(RetrieveAPIView):
+
+
+class UserRetrieveView(RetrieveAPIView):
     queryset = User.objects.all()
-    serializer_class = DataSerializer
+    serializer_class = UserSerializer
 
 
 class SolveInfoView(RetrieveAPIView):

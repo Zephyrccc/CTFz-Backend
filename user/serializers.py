@@ -1,9 +1,13 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .models import User,Profile,SolveInfo
+from .models import User, SolveInfo
 
-# 登录信息序列化
+
 class LoginSerializer(TokenObtainPairSerializer):
+    """
+    登录序列化
+    """
+
     def validate(self, attrs):
         super().validate(attrs)
         refresh = self.get_token(self.user)
@@ -13,6 +17,9 @@ class LoginSerializer(TokenObtainPairSerializer):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    """
+    注册序列化
+    """
     class Meta:
         model = User
         fields = ['username', 'password']
@@ -30,24 +37,30 @@ class RegisterSerializer(serializers.ModelSerializer):
 # user.save()
 
 
-# 用户资料部分
-class ProfileSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Profile
-        exclude = ['id', 'user','solve_info']
-
-
-# 展示用户所有信息
-class DataSerializer(serializers.ModelSerializer):
-    profile = ProfileSerializer(many=False)
-
+class UserSerializer(serializers.ModelSerializer):
+    """
+    用户模型序列化
+    """
     class Meta:
         model = User
-        fields = ['id', 'username', 'profile']
+        fields = ['id', 'username', 'password', 'sex', 'solve_info']
+        extra_kwargs = {"password": {"write_only": True}}
+
+    def update(self, instance, validated_data):
+        result_instance = super().update(instance, validated_data)
+        password = validated_data.get('password', None)
+        if not password:
+            pass
+        else:
+            result_instance.set_password(validated_data['password'])
+            result_instance.save()
+        return result_instance
 
 
 class SolveInfoSerializer(serializers.ModelSerializer):
+    """
+    解题信息序列化
+    """
     class Meta:
         model = SolveInfo
-        exclude=['id','user']
-        # depth=1
+        exclude = ['id', 'user']

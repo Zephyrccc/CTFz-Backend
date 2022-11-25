@@ -1,6 +1,6 @@
 from django.urls import path
-from user.views import ProfileView,SolveInfoView
+from user.views import SolveInfoView,UserRetrieveView
 urlpatterns = [
-    path('user/profile/<int:pk>', ProfileView.as_view()),
+    path('<int:pk>', UserRetrieveView.as_view()),
     path('solve/info/<int:pk>', SolveInfoView.as_view()),
 ]
