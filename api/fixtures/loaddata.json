@@ -33,7 +33,7 @@
   },
   {
     "model": "user.profile",
-    "pk": 11,
+    "pk": 1,
     "fields": {
       "user": 1,
       "sex": "男"
@@ -41,7 +41,7 @@
   },
   {
     "model": "user.profile",
-    "pk": 12,
+    "pk": 2,
     "fields": {
       "user": 2,
       "sex": "女"
