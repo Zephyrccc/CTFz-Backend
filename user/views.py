@@ -24,7 +24,6 @@ class RegisterView(APIView):
         refresh = RefreshToken.for_user(user)
         data = dict()
         data['code'] = 201
-        data['message'] = '注册成功'
         data['access'] = str(refresh.access_token)
         data['refresh'] = str(refresh)
         data['id'] = user.pk

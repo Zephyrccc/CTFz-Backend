@@ -11,7 +11,7 @@ class LoginSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         super().validate(attrs)
         refresh = self.get_token(self.user)
-        return {'code': 200, 'message': '登录成功', 'access': str(refresh.access_token), 'refresh': str(refresh), 'id': self.user.pk}
+        return {'code': 200, 'access': str(refresh.access_token), 'refresh': str(refresh), 'id': self.user.pk}
 
 
 class RegisterSerializer(serializers.ModelSerializer):
