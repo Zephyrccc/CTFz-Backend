@@ -9,5 +9,7 @@ urlpatterns = [
     path('register/', RegisterView.as_view()),
     path('token/refresh/', TokenRefreshView.as_view()),
     path('token/verify/', TokenVerifyView.as_view()),
+    path('user/', include('user.urls')),
+    path('challenge/', include('challenge.urls')),
     re_path('^', include(router.urls)),
 ]

@@ -25,8 +25,8 @@ class RegisterView(APIView):
         data = dict()
         data['code'] = 201
         data['message'] = '注册成功'
-        data['token'] = {'access': str(
-            refresh.access_token), 'refresh': str(refresh)}
+        data['access'] = str(refresh.access_token)
+        data['refresh'] = str(refresh)
         data['result'] = {'id': user.pk, 'username': user.username}
         return Response(data=data, status=status.HTTP_201_CREATED)
 

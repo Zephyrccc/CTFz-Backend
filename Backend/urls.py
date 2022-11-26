@@ -26,7 +26,5 @@ urlpatterns = [
     # swagger
     path('admin/', admin.site.urls),
     path('api/', include('api.urls')),
-    path('user/', include('user.urls')),
-    path('challenge/', include('challenge.urls')),
     path('init/', Init.as_view()),
 ]
