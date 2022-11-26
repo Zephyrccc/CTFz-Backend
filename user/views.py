@@ -27,7 +27,7 @@ class RegisterView(APIView):
         data['message'] = '注册成功'
         data['access'] = str(refresh.access_token)
         data['refresh'] = str(refresh)
-        data['result'] = {'id': user.pk, 'username': user.username}
+        data['id'] = user.pk
         return Response(data=data, status=status.HTTP_201_CREATED)
 
 # @permission_classes([IsAuthenticated(),IsOwner()])
