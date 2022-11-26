@@ -4,7 +4,7 @@ from rest_framework.request import Request
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
-from rest_framework.generics import RetrieveAPIView, UpdateAPIView
+from rest_framework.generics import RetrieveAPIView, UpdateAPIView,ListAPIView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .serializers import RegisterSerializer, LoginSerializer, UserSerializer, SolveInfoSerializer, UserDateSerializer
@@ -46,6 +46,6 @@ class UserRetrieveView(RetrieveAPIView, UpdateAPIView):
         return [IsAuthenticated(), IsOwner(), ]
 
 
-class SolveInfoView(RetrieveAPIView):
+class SolveInfoListView(ListAPIView):
     queryset = SolveInfo.objects.all()
     serializer_class = SolveInfoSerializer

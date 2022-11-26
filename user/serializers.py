@@ -71,4 +71,4 @@ class SolveInfoSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = SolveInfo
-        exclude = ['id', 'user']
+        exclude = ['id']
