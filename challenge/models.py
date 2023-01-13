@@ -13,7 +13,7 @@ class Category(models.Model):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=64, verbose_name='标签名')
+    value = models.CharField(max_length=64, verbose_name='标签名')
 
     class Meta:
         db_table = "tag"
