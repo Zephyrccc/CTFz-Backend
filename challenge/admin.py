@@ -22,7 +22,7 @@ class ChallengeAdmin(admin.ModelAdmin):
     filter_horizontal=['tag']
 
     def show_tag(self, obj):
-        return [Tag.name for Tag in obj.tag.all()]
+        return [Tag.value for Tag in obj.tag.all()]
     show_tag.short_description='标签'
 
 

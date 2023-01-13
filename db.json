@@ -1,0 +1,1149 @@
+[
+    {
+        "model": "admin.logentry",
+        "pk": 1,
+        "fields": {
+            "action_time": "2023-01-13T21:59:38.136",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "5",
+            "object_repr": "Web",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 2,
+        "fields": {
+            "action_time": "2023-01-13T21:59:58.777",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "6",
+            "object_repr": "Pwn",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 3,
+        "fields": {
+            "action_time": "2023-01-13T22:00:03.379",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "7",
+            "object_repr": "Reverse",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 4,
+        "fields": {
+            "action_time": "2023-01-13T22:00:07.253",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "8",
+            "object_repr": "Crypto",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 5,
+        "fields": {
+            "action_time": "2023-01-13T22:00:12.101",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "9",
+            "object_repr": "Misc",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 6,
+        "fields": {
+            "action_time": "2023-01-13T22:00:15.997",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "10",
+            "object_repr": "PHP",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 7,
+        "fields": {
+            "action_time": "2023-01-13T22:00:20.051",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "11",
+            "object_repr": "RCE",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 8,
+        "fields": {
+            "action_time": "2023-01-13T22:00:23.532",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "12",
+            "object_repr": "SQL注入",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 9,
+        "fields": {
+            "action_time": "2023-01-13T22:00:28.485",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "13",
+            "object_repr": "XFF",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 10,
+        "fields": {
+            "action_time": "2023-01-13T22:00:31.872",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "14",
+            "object_repr": "反序列化",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 11,
+        "fields": {
+            "action_time": "2023-01-13T22:00:35.757",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "15",
+            "object_repr": "文件上传",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 12,
+        "fields": {
+            "action_time": "2023-01-13T22:00:39.816",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "16",
+            "object_repr": "PHP伪协议",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 13,
+        "fields": {
+            "action_time": "2023-01-13T22:00:43.753",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "17",
+            "object_repr": "流量分析",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 14,
+        "fields": {
+            "action_time": "2023-01-13T22:00:47.089",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "18",
+            "object_repr": "SSRF",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 15,
+        "fields": {
+            "action_time": "2023-01-13T22:00:50.150",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "19",
+            "object_repr": "图片隐写",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 16,
+        "fields": {
+            "action_time": "2023-01-13T22:00:53.504",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "20",
+            "object_repr": "堆叠注入",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 17,
+        "fields": {
+            "action_time": "2023-01-13T22:00:56.666",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "21",
+            "object_repr": "整数溢出",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 18,
+        "fields": {
+            "action_time": "2023-01-13T22:01:00.072",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "22",
+            "object_repr": "栈溢出",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 19,
+        "fields": {
+            "action_time": "2023-01-13T22:01:03.510",
+            "user": 1,
+            "content_type": 10,
+            "object_id": "23",
+            "object_repr": "ret2libc",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 20,
+        "fields": {
+            "action_time": "2023-01-13T22:04:09.424",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "TestChallengeTitile1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"docker\\u8bbe\\u7f6e\", \"object\": \"TestChallengeTitile1\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 21,
+        "fields": {
+            "action_time": "2023-01-13T22:06:07.279",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "2",
+            "object_repr": "TestChallengeTitile1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"docker\\u8bbe\\u7f6e\", \"object\": \"TestChallengeTitile1\"}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 22,
+        "fields": {
+            "action_time": "2023-01-13T22:06:55.117",
+            "user": 1,
+            "content_type": 9,
+            "object_id": "1",
+            "object_repr": "TestChallengeTitile2",
+            "action_flag": 2,
+            "change_message": "[{\"changed\": {\"fields\": [\"\\u73af\\u5883\\u7c7b\\u578b\", \"\\u9898\\u76ee\\u540d\\u79f0\", \"\\u9898\\u76ee\\u5206\\u7c7b\", \"\\u6807\\u7b7e\", \"\\u63cf\\u8ff0\"]}}, {\"changed\": {\"name\": \"docker\\u8bbe\\u7f6e\", \"object\": \"TestChallengeTitile2\", \"fields\": [\"\\u955c\\u50cf\\u540d\"]}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 23,
+        "fields": {
+            "action_time": "2023-01-13T22:07:39.170",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "1",
+            "object_repr": "1",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "admin.logentry",
+        "pk": 24,
+        "fields": {
+            "action_time": "2023-01-13T22:07:45.861",
+            "user": 1,
+            "content_type": 7,
+            "object_id": "2",
+            "object_repr": "2",
+            "action_flag": 1,
+            "change_message": "[{\"added\": {}}]"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 1,
+        "fields": {
+            "name": "Can add log entry",
+            "content_type": 1,
+            "codename": "add_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 2,
+        "fields": {
+            "name": "Can change log entry",
+            "content_type": 1,
+            "codename": "change_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 3,
+        "fields": {
+            "name": "Can delete log entry",
+            "content_type": 1,
+            "codename": "delete_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 4,
+        "fields": {
+            "name": "Can view log entry",
+            "content_type": 1,
+            "codename": "view_logentry"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 5,
+        "fields": {
+            "name": "Can add permission",
+            "content_type": 2,
+            "codename": "add_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 6,
+        "fields": {
+            "name": "Can change permission",
+            "content_type": 2,
+            "codename": "change_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 7,
+        "fields": {
+            "name": "Can delete permission",
+            "content_type": 2,
+            "codename": "delete_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 8,
+        "fields": {
+            "name": "Can view permission",
+            "content_type": 2,
+            "codename": "view_permission"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 9,
+        "fields": {
+            "name": "Can add group",
+            "content_type": 3,
+            "codename": "add_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 10,
+        "fields": {
+            "name": "Can change group",
+            "content_type": 3,
+            "codename": "change_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 11,
+        "fields": {
+            "name": "Can delete group",
+            "content_type": 3,
+            "codename": "delete_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 12,
+        "fields": {
+            "name": "Can view group",
+            "content_type": 3,
+            "codename": "view_group"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 13,
+        "fields": {
+            "name": "Can add content type",
+            "content_type": 4,
+            "codename": "add_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 14,
+        "fields": {
+            "name": "Can change content type",
+            "content_type": 4,
+            "codename": "change_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 15,
+        "fields": {
+            "name": "Can delete content type",
+            "content_type": 4,
+            "codename": "delete_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 16,
+        "fields": {
+            "name": "Can view content type",
+            "content_type": 4,
+            "codename": "view_contenttype"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 17,
+        "fields": {
+            "name": "Can add session",
+            "content_type": 5,
+            "codename": "add_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 18,
+        "fields": {
+            "name": "Can change session",
+            "content_type": 5,
+            "codename": "change_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 19,
+        "fields": {
+            "name": "Can delete session",
+            "content_type": 5,
+            "codename": "delete_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 20,
+        "fields": {
+            "name": "Can view session",
+            "content_type": 5,
+            "codename": "view_session"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 21,
+        "fields": {
+            "name": "Can add 用户",
+            "content_type": 6,
+            "codename": "add_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 22,
+        "fields": {
+            "name": "Can change 用户",
+            "content_type": 6,
+            "codename": "change_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 23,
+        "fields": {
+            "name": "Can delete 用户",
+            "content_type": 6,
+            "codename": "delete_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 24,
+        "fields": {
+            "name": "Can view 用户",
+            "content_type": 6,
+            "codename": "view_user"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 25,
+        "fields": {
+            "name": "Can add 解题记录",
+            "content_type": 7,
+            "codename": "add_solveinfo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 26,
+        "fields": {
+            "name": "Can change 解题记录",
+            "content_type": 7,
+            "codename": "change_solveinfo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 27,
+        "fields": {
+            "name": "Can delete 解题记录",
+            "content_type": 7,
+            "codename": "delete_solveinfo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 28,
+        "fields": {
+            "name": "Can view 解题记录",
+            "content_type": 7,
+            "codename": "view_solveinfo"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 29,
+        "fields": {
+            "name": "Can add 题目分类",
+            "content_type": 8,
+            "codename": "add_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 30,
+        "fields": {
+            "name": "Can change 题目分类",
+            "content_type": 8,
+            "codename": "change_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 31,
+        "fields": {
+            "name": "Can delete 题目分类",
+            "content_type": 8,
+            "codename": "delete_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 32,
+        "fields": {
+            "name": "Can view 题目分类",
+            "content_type": 8,
+            "codename": "view_category"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 33,
+        "fields": {
+            "name": "Can add 题目",
+            "content_type": 9,
+            "codename": "add_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 34,
+        "fields": {
+            "name": "Can change 题目",
+            "content_type": 9,
+            "codename": "change_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 35,
+        "fields": {
+            "name": "Can delete 题目",
+            "content_type": 9,
+            "codename": "delete_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 36,
+        "fields": {
+            "name": "Can view 题目",
+            "content_type": 9,
+            "codename": "view_challenge"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 37,
+        "fields": {
+            "name": "Can add 标签列表",
+            "content_type": 10,
+            "codename": "add_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 38,
+        "fields": {
+            "name": "Can change 标签列表",
+            "content_type": 10,
+            "codename": "change_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 39,
+        "fields": {
+            "name": "Can delete 标签列表",
+            "content_type": 10,
+            "codename": "delete_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 40,
+        "fields": {
+            "name": "Can view 标签列表",
+            "content_type": 10,
+            "codename": "view_tag"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 41,
+        "fields": {
+            "name": "Can add docker设置",
+            "content_type": 11,
+            "codename": "add_dockerconfig"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 42,
+        "fields": {
+            "name": "Can change docker设置",
+            "content_type": 11,
+            "codename": "change_dockerconfig"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 43,
+        "fields": {
+            "name": "Can delete docker设置",
+            "content_type": 11,
+            "codename": "delete_dockerconfig"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 44,
+        "fields": {
+            "name": "Can view docker设置",
+            "content_type": 11,
+            "codename": "view_dockerconfig"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 45,
+        "fields": {
+            "name": "Can add 题目附件",
+            "content_type": 12,
+            "codename": "add_attachment"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 46,
+        "fields": {
+            "name": "Can change 题目附件",
+            "content_type": 12,
+            "codename": "change_attachment"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 47,
+        "fields": {
+            "name": "Can delete 题目附件",
+            "content_type": 12,
+            "codename": "delete_attachment"
+        }
+    },
+    {
+        "model": "auth.permission",
+        "pk": 48,
+        "fields": {
+            "name": "Can view 题目附件",
+            "content_type": 12,
+            "codename": "view_attachment"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 1,
+        "fields": {
+            "app_label": "admin",
+            "model": "logentry"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 2,
+        "fields": {
+            "app_label": "auth",
+            "model": "permission"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 3,
+        "fields": {
+            "app_label": "auth",
+            "model": "group"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 4,
+        "fields": {
+            "app_label": "contenttypes",
+            "model": "contenttype"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 5,
+        "fields": {
+            "app_label": "sessions",
+            "model": "session"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 6,
+        "fields": {
+            "app_label": "user",
+            "model": "user"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 7,
+        "fields": {
+            "app_label": "user",
+            "model": "solveinfo"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 8,
+        "fields": {
+            "app_label": "challenge",
+            "model": "category"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 9,
+        "fields": {
+            "app_label": "challenge",
+            "model": "challenge"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 10,
+        "fields": {
+            "app_label": "challenge",
+            "model": "tag"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 11,
+        "fields": {
+            "app_label": "challenge",
+            "model": "dockerconfig"
+        }
+    },
+    {
+        "model": "contenttypes.contenttype",
+        "pk": 12,
+        "fields": {
+            "app_label": "challenge",
+            "model": "attachment"
+        }
+    },
+    {
+        "model": "sessions.session",
+        "pk": "bpv89q5ksw44bwsw43v41acvdw4tfej2",
+        "fields": {
+            "session_data": ".eJxVjDsOgzAQRO_iOrJ2wbB2yvScwfL6E5NEtoShinL3gESRlDPvzbyFddua7dbiYucgrgLF5bdj55-xHCA8XLlX6WtZl5nlociTNjnVEF-30_07yK7lfa2JCXXCjgFYkQeEhD6ZcRh7UsBoDMaYSGnqgx8CkencHlgTGO6j-HwBvjI29g:1pGKHh:_0wflXwwZF77Sdf5Xp3rW-BSqHsOTPnhJeC0RMDPT4c",
+            "expire_date": "2023-01-27T21:39:53.336"
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$GDrfmrr20CTZ43FN2t9Kge$fJFmoDOJ2d1ighIGADhQDKk33TaEUtlemqcst7knFpg=",
+            "last_login": "2023-01-13T21:39:53.334",
+            "is_superuser": true,
+            "first_name": "",
+            "last_name": "",
+            "email": "admin@admin.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2023-01-13T21:39:27.662",
+            "username": "admin",
+            "sex": "保密",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "user.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$5TbBcyOEsVJ8ML2jMDv285$CKur2AmckFgKb2EtKPyDJCBcjfArg8FYmx+5kraQc+o=",
+            "last_login": null,
+            "is_superuser": false,
+            "first_name": "",
+            "last_name": "",
+            "email": "",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2023-01-13T21:39:27.662",
+            "username": "test1",
+            "sex": "女",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "user.solveinfo",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "challenge": 1,
+            "state": false,
+            "time": "2023-01-13T22:07:39.169"
+        }
+    },
+    {
+        "model": "user.solveinfo",
+        "pk": 2,
+        "fields": {
+            "user": 1,
+            "challenge": 2,
+            "state": true,
+            "time": "2023-01-13T22:07:45.861"
+        }
+    },
+    {
+        "model": "challenge.category",
+        "pk": 1,
+        "fields": {
+            "name": "Web"
+        }
+    },
+    {
+        "model": "challenge.category",
+        "pk": 2,
+        "fields": {
+            "name": "Pwn"
+        }
+    },
+    {
+        "model": "challenge.category",
+        "pk": 3,
+        "fields": {
+            "name": "Reverse"
+        }
+    },
+    {
+        "model": "challenge.category",
+        "pk": 4,
+        "fields": {
+            "name": "Crypto"
+        }
+    },
+    {
+        "model": "challenge.category",
+        "pk": 5,
+        "fields": {
+            "name": "Misc"
+        }
+    },
+    {
+        "model": "challenge.category",
+        "pk": 6,
+        "fields": {
+            "name": "Other"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 1,
+        "fields": {
+            "value": "Web"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 2,
+        "fields": {
+            "value": "Pwn"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 3,
+        "fields": {
+            "value": "Reverse"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 4,
+        "fields": {
+            "value": "Crypto"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 5,
+        "fields": {
+            "value": "Misc"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 6,
+        "fields": {
+            "value": "PHP"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 7,
+        "fields": {
+            "value": "RCE"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 8,
+        "fields": {
+            "value": "SQL注入"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 9,
+        "fields": {
+            "value": "XFF"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 10,
+        "fields": {
+            "value": "反序列化"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 11,
+        "fields": {
+            "value": "文件上传"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 12,
+        "fields": {
+            "value": "PHP伪协议"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 13,
+        "fields": {
+            "value": "流量分析"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 14,
+        "fields": {
+            "value": "SSRF"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 15,
+        "fields": {
+            "value": "图片隐写"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 16,
+        "fields": {
+            "value": "堆叠注入"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 17,
+        "fields": {
+            "value": "整数溢出"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 18,
+        "fields": {
+            "value": "栈溢出"
+        }
+    },
+    {
+        "model": "challenge.tag",
+        "pk": 19,
+        "fields": {
+            "value": "ret2libc"
+        }
+    },
+    {
+        "model": "challenge.challenge",
+        "pk": 1,
+        "fields": {
+            "environment_type": "file",
+            "title": "TestChallengeTitile2",
+            "category": 2,
+            "describe": "TestChallenge2",
+            "score": 1,
+            "state": true,
+            "is_fixed_flag": false,
+            "flag": null,
+            "have_attachment": false,
+            "mark_total": 0,
+            "mark_count": 0,
+            "created_time": "2023-01-13T22:04:09.418",
+            "tag": [
+                2,
+                18
+            ]
+        }
+    },
+    {
+        "model": "challenge.challenge",
+        "pk": 2,
+        "fields": {
+            "environment_type": "docker",
+            "title": "TestChallengeTitile1",
+            "category": 1,
+            "describe": "TestChallenge1",
+            "score": 1,
+            "state": true,
+            "is_fixed_flag": false,
+            "flag": null,
+            "have_attachment": false,
+            "mark_total": 0,
+            "mark_count": 0,
+            "created_time": "2023-01-13T22:06:07.273",
+            "tag": [
+                1,
+                8
+            ]
+        }
+    },
+    {
+        "model": "challenge.dockerconfig",
+        "pk": 1,
+        "fields": {
+            "name": "TestChallenge2",
+            "port": 80,
+            "memory_limit": 128,
+            "cpu_limit": "0.5",
+            "challenge_two": 1
+        }
+    },
+    {
+        "model": "challenge.dockerconfig",
+        "pk": 2,
+        "fields": {
+            "name": "TestChallenge1",
+            "port": 80,
+            "memory_limit": 128,
+            "cpu_limit": "0.5",
+            "challenge_two": 2
+        }
+    }
+]
