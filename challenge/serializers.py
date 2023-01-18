@@ -6,6 +6,7 @@ class ChallengeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Challenge
         fields = ['environment_type', 'category', 'title', 'describe', 'score','have_attachment', 'mark_total', 'mark_count', 'category', 'tag', 'attachment']
+        depth = 1
 
 
 class TagSerializer(serializers.ModelSerializer):
