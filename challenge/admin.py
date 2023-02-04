@@ -15,7 +15,6 @@ class DockerConfigInline(admin.StackedInline):
 @admin.register(Challenge)
 class ChallengeAdmin(admin.ModelAdmin):
     list_display = ['title', 'environment_type', 'category','state', 'score',  'is_fixed_flag', 'have_attachment', 'show_tag']
-    readonly_fields = ['mark_total', 'mark_count']
     list_filter = ['environment_type']
     list_editable = ['score','state','category']
     inlines = [AttachmentInline, DockerConfigInline]
