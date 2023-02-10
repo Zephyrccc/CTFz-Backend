@@ -12,9 +12,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# 静态文件
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/resources/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -27,7 +32,8 @@ SECRET_KEY = 'WelcomeToCTFZ'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-AUTH_USER_MODEL = 'user.User'
+
+AUTH_USER_MODEL = 'CTFz.User'
 
 # Application definition
 
@@ -41,11 +47,8 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework_simplejwt',
-    'api',
-    'user',
-    'challenge',
-    'drf_yasg2'
-
+    'CTFz',
+    'drf_yasg2',
 ]
 
 MIDDLEWARE = [
@@ -85,7 +88,7 @@ WSGI_APPLICATION = 'Backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ctfz',
+        'NAME': 'ctfzd',
         'USER': 'user',
         'PASSWORD': 'user',
         'HOST': '127.0.0.1',
@@ -140,6 +143,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 REST_FRAMEWORK = {
     # JWT
