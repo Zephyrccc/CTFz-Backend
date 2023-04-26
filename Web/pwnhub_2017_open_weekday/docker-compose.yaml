@@ -1,0 +1,13 @@
+version: "2"
+services:
+
+  web:
+    image: ctfz/pwnhub_2017_open_weekday
+    build: .
+    ports:
+      - "127.0.0.1:8081:80"
+    # volumes:
+    #   - /data/challenge/logs:/var/log/nginx
+    restart: always
+    environment:
+      - FLAG=flag{this_is_flag}

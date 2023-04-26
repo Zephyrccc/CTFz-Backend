@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+
+  crypto:
+    image: ctfz/qwb_2019_crypto_copperstudy
+    # build: .
+    environment:
+      - FLAG=flag{this_is_flag}
+    ports:
+      - "127.0.0.1:10000:10000"
+    restart: always

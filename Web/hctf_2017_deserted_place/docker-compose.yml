@@ -1,0 +1,13 @@
+# hctf2017 Deserted place somexss
+version: "2"
+
+services:
+
+  web:
+    build: .
+    image: ctfz/hctf_2017_deserted_place
+    restart: always
+    environment:
+      - FLAG=flag{this_is_flag}
+    ports:
+      - "127.0.0.1:8305:80"

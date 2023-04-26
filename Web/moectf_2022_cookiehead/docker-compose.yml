@@ -1,0 +1,10 @@
+version: '3'
+services:
+  src:
+    image: ctfz/moectf_2022_cookiehead
+    build: ./src/
+    tty: true
+    environment:
+      - FLAG=flag{this_is_flag}
+    ports:
+      - "1038:80"

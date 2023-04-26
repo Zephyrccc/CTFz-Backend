@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+
+  web:
+    image: ctfz/moectf_2022_what_are_y0u_uploading
+    build: .
+    restart: on-failure
+    environment:
+      - FLAG=flag{this_is_flag}
+    ports:
+      - "8888:80"
